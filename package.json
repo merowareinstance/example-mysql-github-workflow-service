@@ -1,0 +1,32 @@
+{
+  "name": "example-mysql-github-workflow-service",
+  "version": "1.0.0",
+  "description": "Example setup of mysql github workflow service\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "migrations": "sequelize-cli db:migrate",
+    "migration:init": "sequelize-cli migration:generate --name ",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meroware/example-mysql-github-workflow-service.git"
+  },
+  "author": "Edward Romero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meroware/example-mysql-github-workflow-service/issues"
+  },
+  "homepage": "https://github.com/meroware/example-mysql-github-workflow-service#readme",
+  "dependencies": {
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "jest-environment-node": "^26.1.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}

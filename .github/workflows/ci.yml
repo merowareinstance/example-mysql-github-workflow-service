@@ -1,0 +1,16 @@
+name: "ci"
+on:
+  push:
+    branches-ignore:
+      - master
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    container:
+      image: node: 14.5.0-alpine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: 'npm ci'
+      - name: Run Tests
+        run: 'npm run test'
