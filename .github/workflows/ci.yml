@@ -6,6 +6,7 @@ env:
     MYSQL_ROOT_PASSWORD: password,
     MYSQL_HOST: mysql-master
     MYSQL_PORT: 3306
+    NODE_ENV: test
 on:
   push:
 jobs:
@@ -23,7 +24,6 @@ jobs:
           MYSQL_USER: ${{ env.MYSQL_USER }},
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }},
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }},
-          MYSQL_HOST: mysql-master
         options: >-
           --name=mysql-master
           --health-cmd="mysqladmin ping"
@@ -34,5 +34,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install packages
         run: 'npm ci'
+      - name: Setup Database
+        run: 'npm run migrations'
       - name: Run Tests
         run: 'npm run test'
