@@ -18,6 +18,12 @@ jobs:
         image: mysql:5.7
         ports:
           - 3306/tcp
+        env:
+          MYSQL_DATABASE: test_forest,
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: password,
+          MYSQL_ROOT_PASSWORD: password,
+          MYSQL_HOST: mysql-master
         options: >-
           --name=mysql-master
           --health-cmd="mysqladmin ping"
