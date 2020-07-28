@@ -8,7 +8,8 @@ const {
     MYSQL_USER: mysqlUser = 'root',
     MYSQL_PASSWORD: mysqlPassword = '',
     MYSQL_HOST: mysqlHost = '127.0.0.1',
-    MYSQL_PORT: mysqlPort = '3306'
+    MYSQL_PORT: mysqlPort = '3306',
+    NODE_ENV: nodeEnv = 'development'
 } = process.env;
 
 class Db {
@@ -23,7 +24,8 @@ class Db {
             {
                 host: mysqlHost,
                 port: mysqlPort,
-                dialect: 'mysql'
+                dialect: 'mysql',
+                logging: nodeEnv !== 'test'
             });
 
         Object.keys(this.models).forEach(key => {
