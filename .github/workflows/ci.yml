@@ -1,9 +1,9 @@
 name: Forest CI
 env:
-    MYSQL_DATABASE: test_forest,
+    MYSQL_DATABASE: test_forest
     MYSQL_USER: test_user
-    MYSQL_PASSWORD: password,
-    MYSQL_ROOT_PASSWORD: password,
+    MYSQL_PASSWORD: password
+    MYSQL_ROOT_PASSWORD: password
     MYSQL_HOST: mysql-master
     MYSQL_PORT: 3306
     NODE_ENV: test
@@ -20,10 +20,10 @@ jobs:
         ports:
           - 3306/tcp
         env:
-          MYSQL_DATABASE: ${{ MYSQL_DATABASE }},
-          MYSQL_USER: ${{ MYSQL_USER }},
-          MYSQL_PASSWORD: ${{ MYSQL_PASSWORD }},
-          MYSQL_ROOT_PASSWORD: ${{ MYSQL_ROOT_PASSWORD }},
+          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }},
+          MYSQL_USER: ${{ env.MYSQL_USER }},
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }},
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }},
         options: >-
           --name=mysql-master
           --health-cmd="mysqladmin ping"
