@@ -1,4 +1,4 @@
-name: "ci"
+name: Forest CI
 env:
     MYSQL_DATABASE: test_forest,
     MYSQL_USER: test_user
@@ -19,10 +19,10 @@ jobs:
         ports:
           - 3306/tcp
         env:
-          MYSQL_DATABASE: test_forest,
-          MYSQL_USER: test_user
-          MYSQL_PASSWORD: password,
-          MYSQL_ROOT_PASSWORD: password,
+          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }},
+          MYSQL_USER: ${{ env.MYSQL_USER }},
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }},
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }},
           MYSQL_HOST: mysql-master
         options: >-
           --name=mysql-master
