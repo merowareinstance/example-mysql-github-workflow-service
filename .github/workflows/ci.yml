@@ -8,8 +8,6 @@ env:
     MYSQL_PORT: 3306
 on:
   push:
-    branches-ignore:
-      - master
 jobs:
   ci:
     runs-on: ubuntu-latest
