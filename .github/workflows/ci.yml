@@ -23,7 +23,6 @@ jobs:
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         options: >-
-          --name=mysql-master
           --health-cmd="mysqladmin ping"
           --health-interval=10s
           --health-timeout=5s
